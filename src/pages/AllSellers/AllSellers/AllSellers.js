@@ -2,15 +2,10 @@ import React, { useEffect, useState } from 'react';
 
 const AllSellers = ({ user }) => {
 
-
-    console.log(user);
-
-
     const [allSellers, setAllSellers] = useState([])
 
-
     useEffect(() => {
-        fetch(`http://localhost:5000/allsellers?role=${user?.role}`, {
+        fetch("http://localhost:5000/allsellers?role=Seller", {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('token')}`
             }
@@ -18,8 +13,6 @@ const AllSellers = ({ user }) => {
             .then(res => res.json())
             .then(data => setAllSellers(data))
     }, [user?.role])
-
-
 
     return (
         <div>
@@ -30,8 +23,6 @@ const AllSellers = ({ user }) => {
                     <td>{allSeller.email}</td>
                 </tr>)
             }
-
-
         </div>
     );
 };

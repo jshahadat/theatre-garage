@@ -31,7 +31,8 @@ const AddAProduct = () => {
             .then(imgData => {
                 if (imgData.success) {
                     const product = {
-                        name: data.name,
+                        categoryName: data.category,
+                        productNameame: data.name,
                         email: user?.email,
                         price: data.price,
                         condition: data.condition,

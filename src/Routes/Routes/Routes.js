@@ -11,6 +11,7 @@ import MyProduct from "../../pages/MyProduct/MyProduct";
 import DashboardLayout from "../../layout/DashboardLayout";
 import Dashboard from "../../pages/Dashboard/Dashboard/Dashboard";
 import AllSellers from "../../pages/AllSellers/AllSellers/AllSellers";
+import AllUser from "../../pages/AllUser/AllUser";
 
 
 

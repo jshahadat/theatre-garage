@@ -30,8 +30,8 @@ const DashboardLayout = () => {
                         }
                         {
                             isSeller && <>
-                                <li className=''><Link to='/dashboard/addproduct'>Add A Product</Link></li>
-                                <li><Link to='/dashboard/myproducts'>My Products</Link></li>
+                                <li className='border border-orange-800 rounded font-bold text-xl mb-5 bg-red-300'><Link to='/dashboard/addproduct'>Add A Product</Link></li>
+                                <li className='border border-orange-800 rounded font-bold text-xl mb-5 bg-orange-300  '><Link to='/dashboard/myproducts'>My Products</Link></li>
                             </>
                         }
                         {

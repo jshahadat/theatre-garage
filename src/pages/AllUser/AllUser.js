@@ -1,11 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import AllSellers from '../AllSellers/AllSellers/AllSellers';
+import Loading from '../Sheared/Loading/Loading';
 
 const AllUser = () => {
 
 
-    const { data: users = [] } = useQuery({
+    const { data: users = [], isLoading } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/users');
@@ -14,6 +15,9 @@ const AllUser = () => {
         }
     });
 
+    if (isLoading) {
+        return <Loading></Loading>
+    }
     return (
         <div>
 

@@ -2,13 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Categories = ({ category }) => {
+    console.log(category);
 
-    const { category_id } = category
+    const { id } = category
     return (
 
         <div>
 
-            <Link to={`/category/${category_id}}`}>
+            <Link to={`/category/${id}}`}>
                 <div
 
                     className="flex text-center items-center pt-8 btn-outline btn-primary h-24  card card-compact lg:w-80 w-96bg-base-100 shadow-xl">
