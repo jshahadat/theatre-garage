@@ -1,8 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
-import AllSellers from '../../AllSellers/AllSellers/AllSellers';
+import AllSellers from '../AllSellers/AllSellers/AllSellers';
 
-const AllUsers = () => {
+const AllUser = () => {
+
+
     const { data: users = [] } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
@@ -12,11 +14,11 @@ const AllUsers = () => {
         }
     });
 
-
     return (
         <div>
+
             {
-                users.map((user, i) => <AllSellers
+                users.map(user => <AllSellers
                     key={user._id}
                     user={user}
                 ></AllSellers>)
@@ -26,4 +28,4 @@ const AllUsers = () => {
     );
 };
 
-export default AllUsers;
+export default AllUser;

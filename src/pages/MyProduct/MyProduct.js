@@ -48,7 +48,7 @@ const MyProduct = () => {
 
     return (
         <div>
-            <div className='lg:mr-20'>
+            <div className='lg:mr-20 pt-10'>
 
                 {
                     myProducts.map(myProduct => <MyProductCard

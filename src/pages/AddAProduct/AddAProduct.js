@@ -70,9 +70,22 @@ const AddAProduct = () => {
 
 
     return (
-        <div className='w-96 p-7'>
-            <h2 className="text-4xl">Add A Product</h2>
+        <div className='p-7 flex flex-col justify-center items-center bg-gray-100 '>
+            <h2 className="text-4xl mb-5">Add A Product</h2>
             <form onSubmit={handleSubmit(handleAddDoctor)}>
+
+                <div className="form-control w-full max-w-xs">
+                    <label className="label"> <span className="label-text">Product Category</span></label>
+                    <select
+                        {...register('category')}
+                        className="select select-bordered w-full max-w-xs">
+                        <option>Microbus</option>
+                        <option>Luxury car</option>
+                        <option> Electic car</option>
+                    </select>
+                    {errors.category && <p className='text-red-500'>{errors.category.message}</p>}
+                </div>
+
                 <div className="form-control w-full max-w-xs">
                     <label className="label"> <span className="label-text">Product Name</span></label>
                     <input type="text" {...register("name", {
@@ -96,9 +109,6 @@ const AddAProduct = () => {
                         <option>Good</option>
                         <option> Fair</option>
                     </select>
-                    {/* <input type="text" {...register("Con", {
-                        required: "Name is Required"
-                    })} className="input input-bordered w-full max-w-xs" /> */}
                     {errors.condition && <p className='text-red-500'>{errors.condition.message}</p>}
                 </div>
                 <div className="form-control w-full max-w-xs">
@@ -137,7 +147,7 @@ const AddAProduct = () => {
                     })} className="input input-bordered w-full max-w-xs" />
                     {errors.img && <p className='text-red-500'>{errors.img.message}</p>}
                 </div>
-                <input className='btn btn-accent w-full mt-4' value="Add Doctor" type="submit" />
+                <input className='btn font-bold text-white btn-accent w-full mt-4' value="Add Product" type="submit" />
             </form>
         </div>
     );

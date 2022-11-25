@@ -7,44 +7,64 @@ const MyProductCard = ({ myProduct, handleDeleteProducts }) => {
     const { _id, name, email, price, condition, number, location, image, description, purchase, status } = myProduct;
     console.log(status);
 
-    const handleAdvertise = event => {
-        const booking = {
-            name,
-            email,
-            number,
-            price,
-            location,
-            condition,
-            image,
-            description,
-            purchase
-        }
+    // const handleAdvertise = event => {
+    //     const booking = {
+    //         name,
+    //         email,
+    //         number,
+    //         price,
+    //         location,
+    //         condition,
+    //         image,
+    //         description,
+    //         purchase,
+    //         status
+    //     }
 
-        fetch('http://localhost:5000/advertise', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(booking)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.acknowledged) {
-                    toast.success('Your Product Advertise Successfully');
-                }
-                else {
-                    toast.error(data.message);
-                }
-            })
+    //     fetch('http://localhost:5000/advertise', {
+    //         method: 'POST',
+    //         headers: {
+    //             'content-type': 'application/json'
+    //         },
+    //         body: JSON.stringify(booking)
+    //     })
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             console.log(data);
+    //             if (data.acknowledged) {
+    //                 toast.success('Your Product Advertise Successfully');
+    //             }
+    //             else {
+    //                 toast.error(data.message);
+    //             }
+    //         })
 
 
-    }
+    // }
 
 
 
     const handleStatuss = id => {
         fetch(`http://localhost:5000/dashboard/myproduct/${id}`, {
+            method: 'PUT',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    toast.success('Status change  successfully.')
+                    // refetch();
+                }
+            })
+    }
+
+
+
+
+    const handleAdvertise = id => {
+        fetch(`http://localhost:5000/dashboard/advertise/${id}`, {
             method: 'PUT',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -87,11 +107,11 @@ const MyProductCard = ({ myProduct, handleDeleteProducts }) => {
                             {
                                 status !== "available" ?
                                     <>
-                                        <button disabled onClick={handleAdvertise} className="btn btn-primary">Advertise</button>
+                                        <button disabled onClick={() => handleAdvertise(_id)} className="btn btn-primary">Advertise</button>
                                     </>
                                     :
                                     <>
-                                        <button onClick={handleAdvertise} className="btn btn-primary">Advertise</button>
+                                        <button onClick={() => handleAdvertise(_id)} className="btn btn-primary">Advertise</button>
                                     </>
                             }
                         </div>

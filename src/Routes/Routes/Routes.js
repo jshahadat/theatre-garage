@@ -11,7 +11,7 @@ import MyProduct from "../../pages/MyProduct/MyProduct";
 import DashboardLayout from "../../layout/DashboardLayout";
 import Dashboard from "../../pages/Dashboard/Dashboard/Dashboard";
 import AllSellers from "../../pages/AllSellers/AllSellers/AllSellers";
-import AllUsers from "../../pages/Sheared/AllUsers/AllUsers";
+
 
 
 export const routes = createBrowserRouter([
@@ -61,10 +61,6 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/dashboard/allsellers',
-                element: <AllUsers></AllUsers>
-            },
-            {
-                path: '/dashboard/allbuyers',
                 element: <AllSellers></AllSellers>
             },
         ]
