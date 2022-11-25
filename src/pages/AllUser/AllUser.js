@@ -1,9 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 import AllSellers from '../AllSellers/AllSellers/AllSellers';
 import Loading from '../Sheared/Loading/Loading';
 
 const AllUser = () => {
+
+
+
+
 
 
     const { data: users = [], isLoading } = useQuery({
@@ -15,6 +20,9 @@ const AllUser = () => {
         }
     });
 
+
+
+
     if (isLoading) {
         return <Loading></Loading>
     }
@@ -25,6 +33,7 @@ const AllUser = () => {
                 users.map(user => <AllSellers
                     key={user._id}
                     user={user}
+
                 ></AllSellers>)
             }
 
