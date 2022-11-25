@@ -18,6 +18,22 @@ const AllSellers = ({ user }) => {
     }, [user?.role])
 
 
+    const handleMakeVerified = id => {
+        fetch(`http://localhost:5000/dashboard/alluser/${id}`, {
+            method: 'PUT',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    toast.success('Make Verified successful.')
+                    // refetch();
+                }
+            })
+    }
+
 
     const handleDeleteSeller = id => {
         const proceed = window.confirm('Are you Sure?');
@@ -69,7 +85,17 @@ const AllSellers = ({ user }) => {
                                 <th>{i + 1}</th>
                                 <td>{allSeller.name}</td>
                                 <td>{allSeller.email}</td>
-                                <td><button className='btn btn-xs btn-primary'>Make Admin</button></td>
+                                {
+                                    allSeller.status ?
+                                        <>
+                                            <td ><img className='w-10' src="https://i.ibb.co/1qFSWxn/tik-removebg-preview.png" alt="" /></td>
+                                        </>
+                                        :
+                                        <>
+                                            <td><button onClick={() => handleMakeVerified(allSeller._id)} className='btn btn-xs btn-primary'>Make Admin</button></td>
+                                        </>
+                                }
+
                                 <td><button onClick={() => handleDeleteSeller(allSeller._id)} className='btn btn-xs btn-danger'>Delete</button></td>
                             </tr>)
                         }
