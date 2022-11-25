@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
-import AllSellersTable from '../AllSellersTable/AllSellersTable';
 
 const AllSellers = ({ user }) => {
 
@@ -15,8 +14,7 @@ const AllSellers = ({ user }) => {
         })
             .then(res => res.json())
             .then(data => setAllSellers(data))
-    }, [user?.role])
-
+    }, [])
 
     const handleMakeVerified = id => {
         fetch(`http://localhost:5000/dashboard/alluser/${id}`, {
@@ -33,7 +31,6 @@ const AllSellers = ({ user }) => {
                 }
             })
     }
-
 
     const handleDeleteSeller = id => {
         const proceed = window.confirm('Are you Sure?');
@@ -56,7 +53,6 @@ const AllSellers = ({ user }) => {
     }
 
 
-
     return (
         // <div>
         //     {
@@ -67,15 +63,15 @@ const AllSellers = ({ user }) => {
         //     }
         // </div>
         <div className='pr-5 lg:pr-20 pl-5'>
-            <h2 className="text-3xl mt-10 mb-10">All Sellers</h2>
             <div className="overflow-x-auto">
+                <h2 className="text-3xl mt-10 mb-10">All Sellers</h2>
                 <table className="table table-zebra w-full">
                     <thead>
                         <tr>
                             <th></th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Admin</th>
+                            <th>Verified</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
