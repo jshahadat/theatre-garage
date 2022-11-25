@@ -1,17 +1,25 @@
 import React from 'react';
 import toast from 'react-hot-toast';
 
+
 const MyProductCard = ({ myProduct, handleDeleteProducts }) => {
 
     const { _id, name, email, price, condition, number, location, image, description, purchase, status } = myProduct;
+    console.log(status);
 
     const handleAdvertise = event => {
         const booking = {
             name,
             email,
             number,
-            price
+            price,
+            location,
+            condition,
+            image,
+            description,
+            purchase
         }
+
         fetch('http://localhost:5000/advertise', {
             method: 'POST',
             headers: {
@@ -23,7 +31,7 @@ const MyProductCard = ({ myProduct, handleDeleteProducts }) => {
             .then(data => {
                 console.log(data);
                 if (data.acknowledged) {
-                    toast.success('Booking confirmed');
+                    toast.success('Your Product Advertise Successfully');
                 }
                 else {
                     toast.error(data.message);
@@ -31,6 +39,24 @@ const MyProductCard = ({ myProduct, handleDeleteProducts }) => {
             })
 
 
+    }
+
+
+
+    const handleStatuss = id => {
+        fetch(`http://localhost:5000/dashboard/myproduct/${id}`, {
+            method: 'PUT',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    toast.success('Status change  successfully.')
+                    // refetch();
+                }
+            })
     }
 
 
@@ -42,7 +68,7 @@ const MyProductCard = ({ myProduct, handleDeleteProducts }) => {
                 <div className="card-body">
                     <div className='flex justify-between'>
                         <h2 className="card-title">{name}</h2>
-                        <h2 className="py-2 px-5 bg-slate-300 border rounded-xl hover:scale-110 duration-300"> {status}</h2>
+                        <h2 onClick={() => handleStatuss(_id)} className="py-2 px-5 bg-lime-100 border rounded-xl hover:scale-110 duration-300"> {status}</h2>
                     </div>
                     <p>{description}</p>
                     <div className='flex justify-between'>
@@ -58,7 +84,16 @@ const MyProductCard = ({ myProduct, handleDeleteProducts }) => {
                             <button onClick={() => handleDeleteProducts(_id)} className="btn btn-outline btn-warning">Delete</button>
                         </div>
                         <div>
-                            <button onClick={handleAdvertise} className="btn btn-primary">Advertise</button>
+                            {
+                                status !== "available" ?
+                                    <>
+                                        <button disabled onClick={handleAdvertise} className="btn btn-primary">Advertise</button>
+                                    </>
+                                    :
+                                    <>
+                                        <button onClick={handleAdvertise} className="btn btn-primary">Advertise</button>
+                                    </>
+                            }
                         </div>
                     </div>
                 </div>
