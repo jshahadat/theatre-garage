@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { UNSAFE_DataStaticRouterContext } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const MyOrders = () => {
@@ -43,7 +43,20 @@ const MyOrders = () => {
                                     <td><img src={myOrder.img} alt="" /></td>
                                     <td>{myOrder.name}</td>
                                     <td>{myOrder.price}$</td>
-                                    <td>{myOrder?.role !== 'admin' && <button className='btn btn-xs btn-primary'>Pay Bill</button>}</td>
+                                    <td>
+                                        {
+                                            myOrder.price && !myOrder.paid && <Link
+                                                to={`/dashboard/payment/${myOrder._id}`}
+                                            >
+                                                <button
+                                                    className='btn btn-primary btn-sm'
+                                                >Pay</button>
+                                            </Link>
+                                        }
+                                        {
+                                            myOrder.price && myOrder.paid && <span className='text-green-500'>Paid</span>
+                                        }
+                                    </td>
 
                                 </tr>)
                             }

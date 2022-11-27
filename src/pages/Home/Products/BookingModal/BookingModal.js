@@ -63,7 +63,6 @@ const BookingModal = ({ treatment, setTreatment, }) => {
                     <label htmlFor="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <h3 className="text-lg font-bold">Product Name: {productName}</h3>
                     <form onSubmit={handleBooking} className='grid grid-cols-1 gap-3 mt-10'>
-
                         <input name="name" type="text" defaultValue={user?.displayName} disabled placeholder="Your Name" className="input w-full input-bordered" />
                         <input name="email" type="email" defaultValue={user?.email} disabled placeholder="Email Address" className="input w-full input-bordered" />
                         <input name="price" type="text" defaultValue={resaleprice} disabled placeholder="Resale Price" className="input w-full input-bordered" />

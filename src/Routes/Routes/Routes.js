@@ -14,6 +14,7 @@ import AllBuyer from "../../pages/AllSellers/AllBuyer/AllBuyer";
 import Products from "../../pages/Home/Products/Products";
 import PrivateRoute from "../PrivateRoutes/PrivateRoute";
 import MyOrders from "../../pages/MyOrders/MyOrders/MyOrders";
+import Payment from "../../pages/Payment/Payment";
 
 
 
@@ -74,6 +75,11 @@ export const routes = createBrowserRouter([
             {
                 path: '/dashboard/myorders',
                 element: <MyOrders></MyOrders>
+            },
+            {
+                path: '/dashboard/payment/:id',
+                element: <Payment></Payment>,
+                loader: ({ params }) => fetch(`http://localhost:5000/orders/${params.id}`)
             },
         ]
 
