@@ -88,7 +88,7 @@ const AllSellers = ({ user }) => {
                                         </>
                                         :
                                         <>
-                                            <td><button onClick={() => handleMakeVerified(allSeller._id)} className='btn btn-xs btn-primary'>Make Admin</button></td>
+                                            <td><button onClick={() => handleMakeVerified(allSeller._id)} className='btn btn-xs btn-primary'>Make Verified</button></td>
                                         </>
                                 }
 

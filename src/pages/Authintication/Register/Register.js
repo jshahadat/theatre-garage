@@ -87,7 +87,6 @@ const Register = () => {
                                 <select
                                     {...register('option')}
                                     className="select select-bordered w-full max-w-xs">
-                                    <option disabled selected>User</option>
                                     <option>Buyer</option>
                                     <option> Seller</option>
                                 </select>

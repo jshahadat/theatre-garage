@@ -2,27 +2,27 @@ import React from 'react';
 
 const Blog = () => {
     return (
-        <div className=' lg:pl-20 pl-5 lg:pr-20 pr-5'>
+        <div className=' lg:pl-20 pl-5 lg:pr-20 pr-5 mt-10'>
 
             <div className="card w-full mb-10 bg-base-100 shadow-xl">
                 <div className="card-body">
                     <h2 className="card-title">What are the different ways to manage a state in a React application?</h2>
-                    <p>JWT or JSON Web Token, is an open standard that allows a client and a server to exchange security-related data. Every JWT has a set of encoded JSON objects, including claims. To ensure that the claims cannot be changed after the token is issued, JWTs are signed using a cryptographic technique.</p>
-                    <p>JWTs differ from other web tokens in that they contain a set of claims. Claims are used to transmit information between two parties. What these claims are depends on the use case at hand. For example, a claim may assert who issued the token, how long it is valid for, or what permissions the client has been granted.</p>
-
+                    <p>The Four Kinds of React State to Manage
+                        When we talk about state in our applications, it’s important to be clear about what types of state actually matter.There are four main types of state you need to properly manage in your React apps:  Local state,Global state. erver state & URL state</p>
                 </div>
             </div>
             <div className="card w-full mb-10 bg-base-100 shadow-xl">
                 <div className="card-body">
                     <h2 className="card-title"> How does prototypical inheritance work?</h2>
-                    <p>Numerous client requests are received by NodeJS, which adds them to EventQueue. The event-driven architecture approach was used in the construction of NodeJS. The EventLoop in NodeJS is an endless loop that accepts and handles requests.</p>
+                    <p>For instance, we have a user object with its properties and methods, and want to make admin and guest as slightly modified variants of it. We wouldd like to reuse what we have in user, not copy/reimplement its methods, just build a new object on top of it.In JavaScript, objects have a special hidden property Prototype as named in the specification, that is either null or references another object That object is called “a prototype”:</p>
 
                 </div>
             </div>
             <div className="card w-full mb-10 bg-base-100 shadow-xl">
                 <div className="card-body">
                     <h2 className="card-title">What is a unit test? Why should we write unit tests?</h2>
-                    <p>Numerous client requests are received by NodeJS, which adds them to EventQueue. The event-driven architecture approach was used in the construction of NodeJS. The EventLoop in NodeJS is an endless loop that accepts and handles requests.</p>
+                    <p>Unit testing is a software development process in which the smallest testable parts of an application, called units, are individually and independently scrutinized for proper operation.</p>
+                    <p>They enable you to catch bugs early in the development process. Automated unit tests help a great deal with regression testing. They detect code smells in your codebase. For example, if you're having a hard time writing unit tests for a piece of code, it might be a sign that your function is too complex.</p>
 
                 </div>
             </div>
@@ -47,25 +47,25 @@ const Blog = () => {
                                     <tr>
                                         <th>1</th>
 
-                                        <td>relational</td>
-                                        <td>non-relational</td>
-                                        <td>non-relational</td>
+                                        <td>React is a UI library</td>
+                                        <td> Angular is a fully-fledged front-end framework</td>
+                                        <td>Vue. js is a progressive framework</td>
                                     </tr>
 
                                     <tr>
                                         <th>2</th>
 
-                                        <td>use structured query language and have a predefined schema.</td>
-                                        <td> NoSQL databases have dynamic schemas for unstructured data.</td>
-                                        <td> NoSQL databases have dynamic schemas for unstructured data.</td>
+                                        <td>Everything is on JavaScript</td>
+                                        <td>Based on TypeScript</td>
+                                        <td>Based on JavaScript snd HTML</td>
                                     </tr>
 
                                     <tr>
                                         <th>3</th>
 
-                                        <td>are vertically scalabled</td>
-                                        <td>are horizontally scalable.</td>
-                                        <td>are horizontally scalable.</td>
+                                        <td>Based on Virtual DOM </td>
+                                        <td>Based on MVC.</td>
+                                        <td>Based on Virtual DOM</td>
                                     </tr>
                                 </tbody>
                             </table>

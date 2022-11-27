@@ -12,6 +12,7 @@ import DashboardLayout from "../../layout/DashboardLayout";
 import Dashboard from "../../pages/Dashboard/Dashboard/Dashboard";
 import AllSellers from "../../pages/AllSellers/AllSellers/AllSellers";
 import AllBuyer from "../../pages/AllSellers/AllBuyer/AllBuyer";
+import ProductCategory from "../../pages/Home/ProductCategory/ProductCategory";
 
 
 
@@ -39,9 +40,9 @@ export const routes = createBrowserRouter([
                 element: <Blog></Blog>
             },
             {
-                path: ' /category/:id',
-                element: <Product></Product>,
-                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
+                path: ' /category/Microbus',
+                element: <ProductCategory></ProductCategory>,
+                // loader: ({ params }) => fetch(`http://localhost:5000/category/${params.name}`)
             }
         ]
     },

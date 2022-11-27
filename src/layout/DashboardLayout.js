@@ -4,6 +4,7 @@ import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
 import useAdmin from '../hooks/useAdmin';
 import useBuyer from '../hooks/useBuyer';
 import useSeller from '../hooks/useSeller';
+import Fotter from '../pages/Sheared/Footer/Fotter';
 import Navbar from '../pages/Sheared/Navbar/Navbar';
 
 const DashboardLayout = () => {
@@ -25,26 +26,39 @@ const DashboardLayout = () => {
                         <li><Link to="/"></Link></li>
                         {
                             isBuyer && <>
-                                <li><Link to="/dashboard/myorders">My Orders</Link></li>
+                                <li className='border border-orange-800 rounded font-bold text-xl mb-5 '><Link to="/dashboard/myorders">My Orders</Link></li>
                             </>
                         }
                         {
                             isSeller && <>
-                                <li className='border border-orange-800 rounded font-bold text-xl mb-5 bg-red-300'><Link to='/dashboard/addproduct'>Add A Product</Link></li>
-                                <li className='border border-orange-800 rounded font-bold text-xl mb-5 bg-orange-300  '><Link to='/dashboard/myproducts'>My Products</Link></li>
+                                <li className='border border-orange-800 rounded font-bold text-xl mb-5 title'><Link to='/dashboard/addproduct'>Add A Product</Link></li>
+                                <li className='border border-orange-800 rounded font-bold text-xl mb-5 '><Link to='/dashboard/myproducts'>My Products</Link></li>
                             </>
                         }
                         {
                             isAdmin && <>
-                                <li><Link to='/dashboard/allsellers'>All Sellers</Link></li>
-                                <li><Link to='/dashboard/allbuyers'>All Buyers</Link></li>
+                                <li className='border border-orange-800 rounded font-bold text-xl mb-5 '><Link to='/dashboard/allsellers'>All Sellers</Link></li>
+                                <li className='border border-orange-800 rounded font-bold text-xl mb-5 '><Link to='/dashboard/allbuyers'>All Buyers</Link></li>
+
                             </>
+                        }
+                        {
+
+                            !isBuyer & !isAdmin & isBuyer ?
+                                <>
+
+                                </>
+                                :
+                                <>
+                                    <li className='border border-orange-800 rounded font-bold text-xl mb-5 '><Link to="/dashboard/myorders">My Orders</Link></li>
+                                </>
                         }
 
                     </ul>
 
                 </div>
             </div>
+            <Fotter></Fotter>
         </div>
     );
 };

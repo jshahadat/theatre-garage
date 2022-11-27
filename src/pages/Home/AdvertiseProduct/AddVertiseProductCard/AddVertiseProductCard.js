@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Card from '../../Card/Card';
 
 const AddVertiseProductCard = ({ allproduct }) => {
-    console.log(allproduct);
+
     const { name, price, image, description, number, email, condition, location, purchase, status, advertise } = allproduct;
 
 
@@ -22,7 +22,7 @@ const AddVertiseProductCard = ({ allproduct }) => {
 
 
     return (
-        <div className='mb-10'>
+        <div >
             {/* <div className="card lg:card-side bg-base-100 shadow-xl">
                 <div className='lg:w-2/4'>
                     <figure><img className='lg:w-full w-96-  lg:h-96 h-96 ' src={image} alt="Album" /></figure>

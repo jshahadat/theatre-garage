@@ -1,9 +1,9 @@
 import React from 'react';
+import "./Card.css";
 
 const Card = ({ add }) => {
 
     const { name, price, image, description, number, email, condition, location, purchase, status, advertise } = add;
-    console.log(add.name);
     return (
         <div>
             {
@@ -11,15 +11,19 @@ const Card = ({ add }) => {
                     <>
                     </>
                     :
-
                     <>
                         <div className="card lg:card-side bg-base-100 shadow-xl">
+
+
                             <div className='lg:w-2/4'>
-                                <figure><img className='lg:w-full w-96-  lg:h-96 h-96 ' src={image} alt="Album" /></figure>
+                                <figure><img className='lg:w-full w-96 rounded lg:h-96 h-96 ' src={image} alt="Album" /></figure>
                             </div>
                             <div className=' lg:pl-20'>
                                 <div className="card-body ">
-                                    <h2 className="card-title font-bold text-2xl">Product Name : {name}</h2>
+                                    <div className='flex justify-between'>
+                                        <h2 className="card-title">{name}</h2>
+                                        <h2 className="py-2 px-5 bg-lime-100 font-bold border rounded-xl hover:scale-110 duration-300 style"> {status}</h2>
+                                    </div>
                                     <p className='text-xl font-semibold'>{description}</p>
 
                                     <div className=' lg:flex justify-between '>
@@ -32,6 +36,32 @@ const Card = ({ add }) => {
                                     <h1 className='text-xl font-semibold'>Email: {email}</h1>
                                 </div>
                             </div>
+
+
+                            {/* <div class="styleCard">
+                                <div class="image">
+                                    <img src={image} alt='' />
+                                </div>
+                                <div class="details">
+                                    <div class="center">
+                                        <h1>Product Name:{name}<br /><span>Condition : {condition}</span></h1>
+                                        <p>{description}</p>
+                                        <p>Purchase of year : {purchase}</p>
+                                        <p>Location : {location}</p>
+                                        <p>Mobile Number : {number}</p>
+                                        <p>Email: {email}</p>
+                                        <ul>
+                                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div> */}
+
+
                         </div>
 
                     </>
@@ -41,3 +71,6 @@ const Card = ({ add }) => {
 };
 
 export default Card;
+
+
+

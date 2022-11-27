@@ -80,9 +80,9 @@ const AddAProduct = () => {
                     <select
                         {...register('category')}
                         className="select select-bordered w-full max-w-xs">
-                        <option>Microbus</option>
-                        <option>Luxury car</option>
-                        <option> Electic car</option>
+                        <option>Tesla</option>
+                        <option>Ferrari</option>
+                        <option>Ford</option>
                     </select>
                     {errors.category && <p className='text-red-500'>{errors.category.message}</p>}
                 </div>

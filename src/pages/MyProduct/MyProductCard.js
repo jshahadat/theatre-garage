@@ -1,5 +1,7 @@
 import React from 'react';
 import toast from 'react-hot-toast';
+import '../Sheared/Style/Style.css'
+
 
 
 const MyProductCard = ({ myProduct, handleDeleteProducts }) => {
@@ -88,7 +90,7 @@ const MyProductCard = ({ myProduct, handleDeleteProducts }) => {
                 <div className="card-body">
                     <div className='flex justify-between'>
                         <h2 className="card-title">{name}</h2>
-                        <h2 onClick={() => handleStatuss(_id)} className="py-2 px-5 bg-lime-100 border rounded-xl hover:scale-110 duration-300"> {status}</h2>
+                        <h2 onClick={() => handleStatuss(_id)} className="py-2 px-5 bg-lime-100 font-bold border rounded-xl hover:scale-110 duration-300 style"> {status}</h2>
                     </div>
                     <p>{description}</p>
                     <div className='flex justify-between'>
