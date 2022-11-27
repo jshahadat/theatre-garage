@@ -1,7 +1,6 @@
 import React from 'react';
 import img1 from '../../../assets/bannerPicture/img1.jpg'
 import img2 from '../../../assets/bannerPicture/img2.jpg'
-import img3 from '../../../assets/bannerPicture/img3.jpg'
 import img4 from '../../../assets/bannerPicture/img4.jpg'
 
 const Banner = () => {
@@ -11,7 +10,7 @@ const Banner = () => {
                 <div className='container mx-auto'>
                     <div className="carousel w-full h-3/4 mr-4">
                         <div id="slide1" className="carousel-item relative w-full">
-                            <img src={img3} alt='' className="w-full lg:h-screen" />
+                            <img src='https://i.ibb.co/WDNd50B/handcar4000x2500.jpg' alt='' className="w-full lg:h-screen" />
                             <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                                 <a href="#slide4" className="btn btn-circle">❮</a>
                                 <a href="#slide2" className="btn btn-circle">❯</a>

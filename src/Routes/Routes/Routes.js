@@ -5,14 +5,15 @@ import Home from '../../pages/Home/Home/Home'
 import Register from "../../pages/Authintication/Register/Register";
 import Login from "../../pages/Authintication/Login/Login";
 import Blog from "../../pages/Blog/Blog";
-import Product from "../../pages/Home/Product/Product";
 import AddAProduct from "../../pages/AddAProduct/AddAProduct";
 import MyProduct from "../../pages/MyProduct/MyProduct";
 import DashboardLayout from "../../layout/DashboardLayout";
 import Dashboard from "../../pages/Dashboard/Dashboard/Dashboard";
 import AllSellers from "../../pages/AllSellers/AllSellers/AllSellers";
 import AllBuyer from "../../pages/AllSellers/AllBuyer/AllBuyer";
-import ProductCategory from "../../pages/Home/ProductCategory/ProductCategory";
+import Products from "../../pages/Home/Products/Products";
+import PrivateRoute from "../PrivateRoutes/PrivateRoute";
+import MyOrders from "../../pages/MyOrders/MyOrders/MyOrders";
 
 
 
@@ -40,9 +41,9 @@ export const routes = createBrowserRouter([
                 element: <Blog></Blog>
             },
             {
-                path: ' /category/Microbus',
-                element: <ProductCategory></ProductCategory>,
-                // loader: ({ params }) => fetch(`http://localhost:5000/category/${params.name}`)
+                path: '/categories/:id',
+                element: <PrivateRoute><Products></Products></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/categories/${params.id}`)
             }
         ]
     },
@@ -69,6 +70,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/dashboard/allbuyers',
                 element: <AllBuyer></AllBuyer>
+            },
+            {
+                path: '/dashboard/myorders',
+                element: <MyOrders></MyOrders>
             },
         ]
 
