@@ -12,7 +12,7 @@ const Products = () => {
     const [allProducts, setAllProducts] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/allproducts?categoryName=${categoryName}`, {
+        fetch(`https://assignment-twelfth-server.vercel.app/allproducts?categoryName=${categoryName}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('acessToken')}`
             }

@@ -8,7 +8,7 @@ const MyProduct = () => {
     const { user } = useContext(AuthContext);
     const [myProducts, setMyProducts] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/myproducts?email=${user?.email}`, {
+        fetch(`https://assignment-twelfth-server.vercel.app/myproducts?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
@@ -19,7 +19,7 @@ const MyProduct = () => {
     const handleDeleteProducts = id => {
         const proceed = window.confirm('Are you confirm?');
         if (proceed) {
-            fetch(`http://localhost:5000/product/${id}`, {
+            fetch(`https://assignment-twelfth-server.vercel.app/product/${id}`, {
 
                 method: 'DELETE',
                 headers: {

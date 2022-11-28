@@ -6,7 +6,7 @@ const RportedProducts = () => {
 
     const [reportedProducts, setReportedProducts] = useState([])
     useEffect(() => {
-        fetch("http://localhost:5000/repotedproducts?reported=yes", {
+        fetch("https://assignment-twelfth-server.vercel.app/repotedproducts?reported=yes", {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
@@ -19,7 +19,7 @@ const RportedProducts = () => {
         const proceed = window.confirm('Are you confirm?');
         if (proceed) {
 
-            fetch(`http://localhost:5000/product/${id}`, {
+            fetch(`https://assignment-twelfth-server.vercel.app/product/${id}`, {
 
                 method: 'DELETE',
                 headers: {

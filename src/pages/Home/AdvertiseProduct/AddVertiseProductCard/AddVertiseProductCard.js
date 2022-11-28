@@ -10,7 +10,7 @@ const AddVertiseProductCard = ({ allproduct }) => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/advertiseproduct?advertise=${advertise}`, {
+        fetch(`https://assignment-twelfth-server.vercel.app/advertiseproduct?advertise=${advertise}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }

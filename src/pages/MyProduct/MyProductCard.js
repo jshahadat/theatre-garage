@@ -8,7 +8,7 @@ const MyProductCard = ({ myProduct, handleDeleteProducts }) => {
     console.log(status);
 
     const handleStatuss = id => {
-        fetch(`http://localhost:5000/dashboard/myproduct/${id}`, {
+        fetch(`https://assignment-twelfth-server.vercel.app/dashboard/myproduct/${id}`, {
             method: 'PUT',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -24,7 +24,7 @@ const MyProductCard = ({ myProduct, handleDeleteProducts }) => {
     }
 
     const handleAdvertise = id => {
-        fetch(`http://localhost:5000/dashboard/advertise/${id}`, {
+        fetch(`https://assignment-twelfth-server.vercel.app/dashboard/advertise/${id}`, {
             method: 'PUT',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`

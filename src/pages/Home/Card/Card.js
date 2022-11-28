@@ -9,7 +9,7 @@ const Card = ({ add }) => {
     const handleReportStatus = id => {
         const proceed = window.confirm('Are you Sure?');
         if (proceed) {
-            fetch(`http://localhost:5000/adertiseproduct/${id}`, {
+            fetch(`https://assignment-twelfth-server.vercel.app/adertiseproduct/${id}`, {
                 method: 'PUT',
                 headers: {
                     authorization: `bearer ${localStorage.getItem('accessToken')}`

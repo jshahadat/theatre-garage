@@ -7,7 +7,7 @@ const AllBuyer = () => {
     const [buyer, setBuyer] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:5000/dashboard/allbuyers?role=Buyer", {
+        fetch("https://assignment-twelfth-server.vercel.app/dashboard/allbuyers?role=Buyer", {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
@@ -20,7 +20,7 @@ const AllBuyer = () => {
         const proceed = window.confirm('Are you Sure?');
         if (proceed) {
 
-            fetch(`http://localhost:5000/dashboard/allbuyers/${id}`, {
+            fetch(`https://assignment-twelfth-server.vercel.app/dashboard/allbuyers/${id}`, {
 
                 method: 'DELETE',
                 headers: {

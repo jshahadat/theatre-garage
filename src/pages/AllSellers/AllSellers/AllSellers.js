@@ -7,7 +7,7 @@ const AllSellers = ({ user, refetch }) => {
     const [allSellers, setAllSellers] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:5000/allsellers?role=Seller", {
+        fetch("https://assignment-twelfth-server.vercel.app/allsellers?role=Seller", {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
@@ -17,7 +17,7 @@ const AllSellers = ({ user, refetch }) => {
     }, [])
 
     const handleMakeVerified = id => {
-        fetch(`http://localhost:5000/dashboard/alluser/${id}`, {
+        fetch(`https://assignment-twelfth-server.vercel.app/dashboard/alluser/${id}`, {
             method: 'PUT',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -35,7 +35,7 @@ const AllSellers = ({ user, refetch }) => {
     const handleDeleteSeller = id => {
         const proceed = window.confirm('Are you Sure?');
         if (proceed) {
-            fetch(`http://localhost:5000/allseller/${id}`, {
+            fetch(`https://assignment-twelfth-server.vercel.app/allseller/${id}`, {
                 method: 'DELETE',
                 headers: {
                     authorization: `bearer ${localStorage.getItem('accessToken')}`
