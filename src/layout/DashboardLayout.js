@@ -39,6 +39,7 @@ const DashboardLayout = () => {
                             isAdmin && <>
                                 <li className='border border-orange-800 rounded font-bold text-xl mb-5 '><Link to='/dashboard/allsellers'>All Sellers</Link></li>
                                 <li className='border border-orange-800 rounded font-bold text-xl mb-5 '><Link to='/dashboard/allbuyers'>All Buyers</Link></li>
+                                <li className='border border-orange-800 rounded font-bold text-xl mb-5 '><Link to='/dashboard/reportedproducts'>Reported Products</Link></li>
 
                             </>
                         }
@@ -58,7 +59,7 @@ const DashboardLayout = () => {
 
                 </div>
             </div>
-            <Fotter></Fotter>
+            {/* <Fotter></Fotter> */}
         </div>
     );
 };

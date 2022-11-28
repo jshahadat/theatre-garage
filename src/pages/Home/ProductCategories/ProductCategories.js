@@ -17,7 +17,7 @@ const ProductCategories = () => {
     }
     return (
         <div>
-            <h1 className='bg lg:text-4xl text-3xl pb-5 font-bold text-yellow-100 lg:pl-20 pl-5 lg:pr-20 lg:pt-14 pt-6'>Select Your Category</h1>
+            <h1 className='bg lg:text-4xl text-3xl pb-5 font-bold text-yellow-100 lg:pl-20 pl-5 lg:pr-20 lg:pt-14 pt-6'>Select Your Car Brand</h1>
             <div className='bg grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:pl-20 pl-5 lg:pr-20 lg:pt-10 lg:pb-20 pb-10 pr-5 rounded'>
 
                 {

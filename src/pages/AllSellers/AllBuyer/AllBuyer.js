@@ -16,7 +16,6 @@ const AllBuyer = () => {
             .then(data => setAllBuyers(data))
     }, [])
 
-
     const handleDeleteBuyer = id => {
         const proceed = window.confirm('Are you Sure?');
         if (proceed) {

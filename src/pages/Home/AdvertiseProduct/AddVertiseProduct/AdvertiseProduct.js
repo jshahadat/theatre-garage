@@ -4,8 +4,6 @@ import AddVertiseProductCard from '../AddVertiseProductCard/AddVertiseProductCar
 
 const AdvertiseProduct = () => {
 
-
-
     const { data: allproducts = [] } = useQuery({
         queryKey: ['allproducts'],
         queryFn: async () => {
@@ -15,17 +13,14 @@ const AdvertiseProduct = () => {
         }
     });
 
-
     return (
         <div className='mt-10 mb-10 lg:ml-20 ml-5 lg:mr-20 mr-5'>
-
             {
                 allproducts.map(allproduct => <AddVertiseProductCard
                     key={allproduct._id}
                     allproduct={allproduct}
                 ></AddVertiseProductCard>)
             }
-
         </div>
     );
 };

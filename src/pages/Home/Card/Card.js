@@ -1,9 +1,29 @@
 import React from 'react';
-import "./Card.css";
-
+import toast from 'react-hot-toast';
 const Card = ({ add }) => {
+    console.log(add);
 
-    const { name, price, img, description, number, email, condition, location, purchase, status, advertise } = add;
+    const { _id, productNameame, price, img, description, number, email, condition, location, purchase, status } = add;
+
+
+    const handleReportStatus = id => {
+        fetch(`http://localhost:5000/adertiseproduct/${id}`, {
+            method: 'PUT',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    toast.success('Report This Item  successfully.')
+                    // refetch();
+                }
+            })
+    }
+
+
+
     return (
         <div>
             {
@@ -20,8 +40,9 @@ const Card = ({ add }) => {
                             </div>
                             <div className=' lg:pl-20'>
                                 <div className="card-body ">
+
                                     <div className='flex justify-between'>
-                                        <h2 className="card-title">{name}</h2>
+                                        <h2 className="card-title">{productNameame}</h2>
                                         <h2 className="py-2 px-5 bg-lime-100 font-bold border rounded-xl hover:scale-110 duration-300 style"> {status}</h2>
                                     </div>
                                     <p className='text-xl font-semibold'>{description}</p>
@@ -33,35 +54,19 @@ const Card = ({ add }) => {
                                     <h1 className='text-xl font-semibold'>Purchase of year : {purchase} </h1>
                                     <h1 className='text-xl font-semibold'>Location : {location}</h1>
                                     <h1 className='text-xl font-semibold'>Mobile Number : {number}</h1>
-                                    <h1 className='text-xl font-semibold'>Email: {email}</h1>
-                                </div>
-                            </div>
+                                    <div className='flex justify-between'>
+                                        <h1 className='text-xl font-semibold'>Email: {email}</h1>
+                                        <div className="dropdown bg-white dropdown-bottom dropdown-end">
+                                            <label tabindex="0" className="btn bg-white m-1">⋮</label>
+                                            <ul tabindex="0" className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                                                <button> <li onClick={() => handleReportStatus(_id)}>Report This Item</li></button>
 
+                                            </ul>
+                                        </div>
 
-                            {/* <div class="styleCard">
-                                <div class="image">
-                                    <img src={image} alt='' />
-                                </div>
-                                <div class="details">
-                                    <div class="center">
-                                        <h1>Product Name:{name}<br /><span>Condition : {condition}</span></h1>
-                                        <p>{description}</p>
-                                        <p>Purchase of year : {purchase}</p>
-                                        <p>Location : {location}</p>
-                                        <p>Mobile Number : {number}</p>
-                                        <p>Email: {email}</p>
-                                        <ul>
-                                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                        </ul>
                                     </div>
                                 </div>
-                            </div> */}
-
-
+                            </div>
                         </div>
 
                     </>

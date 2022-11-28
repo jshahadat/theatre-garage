@@ -59,7 +59,6 @@ const Login = () => {
             .catch(error => console.error(error))
     }
 
-
     return (
         <div >
             <section className="bg-slate-300 min-h-screen flex items-center justify-center">
@@ -124,7 +123,6 @@ const Login = () => {
                     </div>
                 </div>
             </section>
-
         </div>
     );
 };

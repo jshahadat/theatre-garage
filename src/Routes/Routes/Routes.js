@@ -15,9 +15,8 @@ import Products from "../../pages/Home/Products/Products";
 import PrivateRoute from "../PrivateRoutes/PrivateRoute";
 import MyOrders from "../../pages/MyOrders/MyOrders/MyOrders";
 import Payment from "../../pages/Payment/Payment";
-
-
-
+import AdminRoute from "../AdminRoute/AdminRoute";
+import RportedProducts from "../../pages/RportedProducts/RportedProducts";
 
 export const routes = createBrowserRouter([
     {
@@ -51,34 +50,39 @@ export const routes = createBrowserRouter([
     {
         path: '/dashboard',
         element: <PrivateRoute> <DashboardLayout></DashboardLayout></PrivateRoute>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/dashboard',
-                element: <Dashboard></Dashboard>
+                element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>
             },
             {
                 path: '/dashboard/addproduct',
-                element: <AddAProduct></AddAProduct>
+                element: <PrivateRoute><AddAProduct></AddAProduct></PrivateRoute>
             },
             {
                 path: '/dashboard/myproducts',
-                element: <MyProduct></MyProduct>
+                element: <PrivateRoute><MyProduct></MyProduct></PrivateRoute>
             },
             {
                 path: '/dashboard/allsellers',
-                element: <AllSellers></AllSellers>
+                element: <AdminRoute><PrivateRoute><AllSellers></AllSellers></PrivateRoute></AdminRoute>
             },
             {
                 path: '/dashboard/allbuyers',
-                element: <AllBuyer></AllBuyer>
+                element: <AdminRoute><PrivateRoute><AllBuyer></AllBuyer></PrivateRoute></AdminRoute>
+            },
+            {
+                path: '/dashboard/reportedproducts',
+                element: <AdminRoute><PrivateRoute><RportedProducts></RportedProducts></PrivateRoute></AdminRoute>
             },
             {
                 path: '/dashboard/myorders',
-                element: <MyOrders></MyOrders>
+                element: <PrivateRoute><MyOrders></MyOrders></PrivateRoute>
             },
             {
                 path: '/dashboard/payment/:id',
-                element: <Payment></Payment>,
+                element: <PrivateRoute><Payment></Payment></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/orders/${params.id}`)
             },
         ]

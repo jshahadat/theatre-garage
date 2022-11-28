@@ -4,19 +4,12 @@ import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
-
 const AddAProduct = () => {
 
-
     const { user } = useContext(AuthContext);
-
     const { register, handleSubmit, formState: { errors } } = useForm();
-
     const imageHostKey = process.env.REACT_APP_imgbb_key;
-
     const navigate = useNavigate();
-
-
 
     const handleAddDoctor = data => {
         const image = data.image[0];
@@ -45,7 +38,6 @@ const AddAProduct = () => {
                         img: imgData.data.url
                     }
 
-
                     fetch('http://localhost:5000/product', {
                         method: 'POST',
                         headers: {
@@ -64,11 +56,6 @@ const AddAProduct = () => {
                 }
             })
     }
-
-
-
-
-
 
 
     return (

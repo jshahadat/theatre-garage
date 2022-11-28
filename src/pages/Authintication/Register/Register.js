@@ -41,9 +41,6 @@ const Register = () => {
             });
     }
 
-
-
-
     const saveUser = (name, email, role) => {
         const user = { name, email, role };
         fetch('http://localhost:5000/users', {
@@ -59,9 +56,6 @@ const Register = () => {
             })
     }
 
-
-
-
     return (
         <div>
             <section className="bg-gray-50 min-h-screen flex items-center justify-center">
@@ -73,7 +67,9 @@ const Register = () => {
 
                     <div className="md:w-1/2 px-8 md:px-16">
                         <h2 className="font-bold text-2xl text-[#002D74]">Register</h2>
+
                         <form onSubmit={handleSubmit(handleSignUp)}>
+
                             <div className="form-control w-full max-w-xs">
                                 <label className="label"> <span className="label-text">Name</span></label>
                                 <input type="text" {...register("name", {
@@ -93,7 +89,6 @@ const Register = () => {
                                 {errors.option && <p className='text-red-500'>{errors.option.message}</p>}
                             </div>
 
-
                             <div className="form-control w-full max-w-xs">
                                 <label className="label"> <span className="label-text">Email</span></label>
                                 <input type="email" {...register("email", {
@@ -101,6 +96,7 @@ const Register = () => {
                                 })} className="input input-bordered w-full max-w-xs" />
                                 {errors.email && <p className='text-red-500'>{errors.email.message}</p>}
                             </div>
+
                             <div className="form-control w-full max-w-xs">
                                 <label className="label"> <span className="label-text">Password</span></label>
                                 <input type="password" {...register("password", {
@@ -110,11 +106,10 @@ const Register = () => {
                                 })} className="input input-bordered w-full max-w-xs" />
                                 {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
                             </div>
+
                             <input className='btn btn-accent w-full mt-4' value="Sign Up" type="submit" />
                             {signUpError && <p className='text-red-600'>{signUpError}</p>}
                         </form>
-
-
 
                         <div className="mt-3 text-xs flex justify-between items-center text-[#002D74]">
                             <p>Do you have an account?</p>

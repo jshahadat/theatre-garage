@@ -1,17 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useState } from 'react';
-import toast from 'react-hot-toast';
+import React from 'react';
 import AllSellers from '../AllSellers/AllSellers/AllSellers';
 import Loading from '../Sheared/Loading/Loading';
 
 const AllUser = () => {
 
-
-
-
-
-
-    const { data: users = [], isLoading } = useQuery({
+    const { data: users = [], isLoading, refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/users');
@@ -19,9 +13,6 @@ const AllUser = () => {
             return data;
         }
     });
-
-
-
 
     if (isLoading) {
         return <Loading></Loading>
@@ -33,7 +24,7 @@ const AllUser = () => {
                 users.map(user => <AllSellers
                     key={user._id}
                     user={user}
-
+                    refetch={refetch}
                 ></AllSellers>)
             }
 
