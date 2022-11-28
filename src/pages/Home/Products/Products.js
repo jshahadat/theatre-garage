@@ -14,7 +14,7 @@ const Products = () => {
     useEffect(() => {
         fetch(`http://localhost:5000/allproducts?categoryName=${categoryName}`, {
             headers: {
-                authorization: `Bearer ${localStorage.getItem('token')}`
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
         })
             .then(res => res.json())

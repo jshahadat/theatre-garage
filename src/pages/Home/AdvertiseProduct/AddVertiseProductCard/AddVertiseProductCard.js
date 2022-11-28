@@ -12,7 +12,7 @@ const AddVertiseProductCard = ({ allproduct }) => {
     useEffect(() => {
         fetch(`http://localhost:5000/advertiseproduct?advertise=${advertise}`, {
             headers: {
-                authorization: `Bearer ${localStorage.getItem('token')}`
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
         })
             .then(res => res.json())

@@ -9,7 +9,7 @@ const AllBuyer = () => {
     useEffect(() => {
         fetch("http://localhost:5000/dashboard/allbuyers?role=Buyer", {
             headers: {
-                authorization: `Bearer ${localStorage.getItem('token')}`
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
         })
             .then(res => res.json())

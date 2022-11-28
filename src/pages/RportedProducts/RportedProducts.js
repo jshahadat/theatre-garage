@@ -9,14 +9,12 @@ const RportedProducts = () => {
     useEffect(() => {
         fetch("http://localhost:5000/repotedproducts?reported=yes", {
             headers: {
-                authorization: `Bearer ${localStorage.getItem('token')}`
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
         })
             .then(res => res.json())
             .then(data => setReportedProducts(data))
     }, [])
-
-
 
 
     const handleDeleteProducts = id => {
@@ -41,8 +39,8 @@ const RportedProducts = () => {
 
 
     return (
-        <div>
-            <div>
+        <div className='lg:mt-20 mt-10 lg:mr-20 mr-5 ml-5  '>
+            <div >
                 {
                     reportedProducts.map(reportedProduct => <RportedProductsCard
                         key={reportedProduct}

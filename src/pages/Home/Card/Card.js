@@ -7,19 +7,23 @@ const Card = ({ add }) => {
 
 
     const handleReportStatus = id => {
-        fetch(`http://localhost:5000/adertiseproduct/${id}`, {
-            method: 'PUT',
-            headers: {
-                authorization: `bearer ${localStorage.getItem('accessToken')}`
-            }
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.modifiedCount > 0) {
-                    toast.success('Report This Item  successfully.')
-                    // refetch();
+        const proceed = window.confirm('Are you Sure?');
+        if (proceed) {
+            fetch(`http://localhost:5000/adertiseproduct/${id}`, {
+                method: 'PUT',
+                headers: {
+                    authorization: `bearer ${localStorage.getItem('accessToken')}`
                 }
             })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.modifiedCount > 0) {
+                        toast.success('Report This Item  successfully.')
+                        // refetch();
+                    }
+                })
+        }
+
     }
 
 
@@ -59,7 +63,7 @@ const Card = ({ add }) => {
                                         <div className="dropdown bg-white dropdown-bottom dropdown-end">
                                             <label tabindex="0" className="btn bg-white m-1">⋮</label>
                                             <ul tabindex="0" className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                                                <button> <li onClick={() => handleReportStatus(_id)}>Report This Item</li></button>
+                                                <button className='btn btn-ghost bg-red-600'> <li onClick={() => handleReportStatus(_id)}>Report This Item</li></button>
 
                                             </ul>
                                         </div>
