@@ -6,10 +6,7 @@ import MyProductCard from './MyProductCard';
 const MyProduct = () => {
 
     const { user } = useContext(AuthContext);
-
     const [myProducts, setMyProducts] = useState([])
-
-
     useEffect(() => {
         fetch(`http://localhost:5000/myproducts?email=${user?.email}`, {
             headers: {
@@ -19,16 +16,15 @@ const MyProduct = () => {
             .then(res => res.json())
             .then(data => setMyProducts(data))
     }, [user?.email])
-
-
-
     const handleDeleteProducts = id => {
         const proceed = window.confirm('Are you confirm?');
         if (proceed) {
-
             fetch(`http://localhost:5000/product/${id}`, {
 
-                method: 'DELETE'
+                method: 'DELETE',
+                headers: {
+                    authorization: `bearer ${localStorage.getItem('accessToken')}`
+                }
             })
                 .then(res => res.json())
                 .then(data => {
@@ -41,10 +37,6 @@ const MyProduct = () => {
                 })
         }
     }
-
-
-
-
 
     return (
         <div>

@@ -2,12 +2,10 @@ import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
 
-const BookingModal = ({ treatment, setTreatment, }) => {
-    console.log(treatment);
-    const { productName, resaleprice, img } = treatment;
+const BookingModal = ({ bookingProduct, setBookingProduct }) => {
+    console.log(bookingProduct);
+    const { productName, resaleprice, img } = bookingProduct;
     const { user } = useContext(AuthContext);
-
-
 
     const handleBooking = event => {
         event.preventDefault();
@@ -26,9 +24,7 @@ const BookingModal = ({ treatment, setTreatment, }) => {
             phone,
             img
         }
-        setTreatment(null);
-
-
+        setBookingProduct(null);
 
         fetch('http://localhost:5000/bookings', {
             method: 'POST',
@@ -41,7 +37,7 @@ const BookingModal = ({ treatment, setTreatment, }) => {
             .then(data => {
                 console.log(data);
                 if (data.acknowledged) {
-                    setTreatment(null);
+                    setBookingProduct(null);
                     toast.success('Order confirmed');
                 }
                 else {
@@ -51,9 +47,6 @@ const BookingModal = ({ treatment, setTreatment, }) => {
 
 
     }
-
-
-
 
     return (
         <>

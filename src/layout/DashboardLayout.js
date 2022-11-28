@@ -43,23 +43,12 @@ const DashboardLayout = () => {
 
                             </>
                         }
-                        {
-
-                            !isBuyer & !isAdmin & isBuyer ?
-                                <>
-
-                                </>
-                                :
-                                <>
-                                    <li className='border border-orange-800 rounded font-bold text-xl mb-5 '><Link to="/dashboard/myorders">My Orders</Link></li>
-                                </>
-                        }
 
                     </ul>
 
                 </div>
             </div>
-            {/* <Fotter></Fotter> */}
+            <Fotter></Fotter>
         </div>
     );
 };

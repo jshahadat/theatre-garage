@@ -36,7 +36,10 @@ const AllSellers = ({ user, refetch }) => {
         const proceed = window.confirm('Are you Sure?');
         if (proceed) {
             fetch(`http://localhost:5000/allseller/${id}`, {
-                method: 'DELETE'
+                method: 'DELETE',
+                headers: {
+                    authorization: `bearer ${localStorage.getItem('accessToken')}`
+                }
             })
                 .then(res => res.json())
                 .then(data => {

@@ -1,7 +1,8 @@
 import React from 'react';
 import '../Product.css'
 
-const ProductCard = ({ product, setTreatment }) => {
+const ProductCard = ({ product, setBookingProduct }) => {
+    console.log(product);
 
     const { img, productName, originalPrice, resaleprice, use, location } = product;
 
@@ -29,7 +30,7 @@ const ProductCard = ({ product, setTreatment }) => {
                             <div className="img-bg"></div>
                             <img src={img} alt="Brohm Lake" />
                         </figure>
-                        <label htmlFor="booking-modal" className='button  text-white' onClick={() => setTreatment(product)}>Book Appointment</label>
+                        <label htmlFor="booking-modal" className='button  text-white' onClick={() => setBookingProduct(product)}>Book Appointment</label>
                         <div className="design-container">
                             <span className="design design--1"></span>
                             <span className="design design--2"></span>

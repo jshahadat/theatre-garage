@@ -5,7 +5,6 @@ import RportedProductsCard from './RportedProductsCard';
 const RportedProducts = () => {
 
     const [reportedProducts, setReportedProducts] = useState([])
-
     useEffect(() => {
         fetch("http://localhost:5000/repotedproducts?reported=yes", {
             headers: {
@@ -16,14 +15,16 @@ const RportedProducts = () => {
             .then(data => setReportedProducts(data))
     }, [])
 
-
     const handleDeleteProducts = id => {
         const proceed = window.confirm('Are you confirm?');
         if (proceed) {
 
             fetch(`http://localhost:5000/product/${id}`, {
 
-                method: 'DELETE'
+                method: 'DELETE',
+                headers: {
+                    authorization: `bearer ${localStorage.getItem('accessToken')}`
+                }
             })
                 .then(res => res.json())
                 .then(data => {
@@ -37,7 +38,6 @@ const RportedProducts = () => {
         }
     }
 
-
     return (
         <div className='lg:mt-20 mt-10 lg:mr-20 mr-5 ml-5  '>
             <div >
@@ -50,7 +50,6 @@ const RportedProducts = () => {
                 }
 
             </div>
-
         </div>
     );
 };

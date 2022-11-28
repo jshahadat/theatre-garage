@@ -2,13 +2,10 @@ import React from 'react';
 import toast from 'react-hot-toast';
 import '../Sheared/Style/Style.css'
 
-
-
 const MyProductCard = ({ myProduct, handleDeleteProducts }) => {
 
-    const { _id, name, email, price, condition, number, location, img, description, purchase, status } = myProduct;
+    const { _id, email, resaleprice, originalPrice, condition, number, location, img, description, purchase, status, productName } = myProduct;
     console.log(status);
-
 
     const handleStatuss = id => {
         fetch(`http://localhost:5000/dashboard/myproduct/${id}`, {
@@ -25,9 +22,6 @@ const MyProductCard = ({ myProduct, handleDeleteProducts }) => {
                 }
             })
     }
-
-
-
 
     const handleAdvertise = id => {
         fetch(`http://localhost:5000/dashboard/advertise/${id}`, {
@@ -50,17 +44,16 @@ const MyProductCard = ({ myProduct, handleDeleteProducts }) => {
 
         <div className='pb-10'>
             <div className="card lg:card-side bg-base-100 shadow-xl">
-                <figure><img className='w-96 h-96' src={img} alt="Album" /></figure>
+                <figure><img className='w-96 h-full' src={img} alt="Album" /></figure>
                 <div className="card-body">
                     <div className='flex justify-between'>
-                        <h2 className="card-title">{name}</h2>
+                        <h2 className="card-title">{productName}</h2>
                         <h2 onClick={() => handleStatuss(_id)} className="py-2 px-5 bg-lime-100 font-bold border rounded-xl hover:scale-110 duration-300 style"> {status}</h2>
                     </div>
                     <p>{description}</p>
-                    <div className='flex justify-between'>
-                        <h1>Price: {price} $</h1>
-                        <h1>Condition : {condition}</h1>
-                    </div>
+                    <h1>Resale Price: {resaleprice} $</h1>
+                    <h1>Condition : {condition}</h1>
+                    <h1>Original Price : {originalPrice}</h1>
                     <h1>Purchase of year : {purchase} </h1>
                     <h1>Location : {location}</h1>
                     <h1>Mobile Number : {number}</h1>

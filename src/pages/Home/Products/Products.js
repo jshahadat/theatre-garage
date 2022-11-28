@@ -7,14 +7,14 @@ import ProductCard from './ProductCard/ProductCard';
 const Products = () => {
 
     const { categoryName, products } = useLoaderData();
-    const [treatment, setTreatment] = useState(null);
+    const [bookingProduct, setBookingProduct] = useState(null);
 
     const [allProducts, setAllProducts] = useState([])
 
     useEffect(() => {
         fetch(`http://localhost:5000/allproducts?categoryName=${categoryName}`, {
             headers: {
-                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                authorization: `Bearer ${localStorage.getItem('acessToken')}`
             }
         })
             .then(res => res.json())
@@ -28,17 +28,17 @@ const Products = () => {
                     products.map(product => <ProductCard
                         key={product._id}
                         product={product}
-                        setTreatment={setTreatment}
+                        setBookingProduct={setBookingProduct}
                     ></ProductCard>)
                 }
             </div>
 
             <div>
                 {
-                    treatment &&
+                    bookingProduct &&
                     <BookingModal
-                        treatment={treatment}
-                        setTreatment={setTreatment}
+                        bookingProduct={bookingProduct}
+                        setBookingProduct={setBookingProduct}
                     ></BookingModal>
                 }
             </div>
@@ -48,7 +48,7 @@ const Products = () => {
                     allProducts.map(allProduct => <AllProductsCard
                         key={allProduct._id}
                         allProduct={allProduct}
-                        setTreatment={setTreatment}
+                        setBookingProduct={setBookingProduct}
                     ></AllProductsCard>)
                 }
             </div>

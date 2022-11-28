@@ -3,7 +3,7 @@ import toast from 'react-hot-toast';
 const Card = ({ add }) => {
     console.log(add);
 
-    const { _id, productNameame, price, img, description, number, email, condition, location, purchase, status } = add;
+    const { _id, productName, resaleprice, originalPrice, img, description, number, email, condition, location, purchase, status } = add;
 
 
     const handleReportStatus = id => {
@@ -42,19 +42,20 @@ const Card = ({ add }) => {
                             <div className='lg:w-2/4'>
                                 <figure><img className='lg:w-full w-96 rounded lg:h-96 h-96 ' src={img} alt="Album" /></figure>
                             </div>
-                            <div className=' lg:pl-20'>
+                            <div className=' '>
                                 <div className="card-body ">
 
                                     <div className='flex justify-between'>
-                                        <h2 className="card-title">{productNameame}</h2>
+                                        <h2 className="card-title">{productName}</h2>
                                         <h2 className="py-2 px-5 bg-lime-100 font-bold border rounded-xl hover:scale-110 duration-300 style"> {status}</h2>
                                     </div>
                                     <p className='text-xl font-semibold'>{description}</p>
 
                                     <div className=' lg:flex justify-between '>
-                                        <h1 className='text-xl font-semibold lg:pr-16'>Price: {price} $</h1>
-                                        <h1 className='text-xl font-semibold'>Condition : {condition}</h1>
+                                        <h1 className='text-xl font-semibold lg:pr-16'>Resale Price: {resaleprice}$</h1>
+                                        <h1 className='text-xl font-semibold lg:pr-16'>Original Price: {originalPrice}$</h1>
                                     </div>
+                                    <h1 className='text-xl font-semibold'>Condition : {condition}</h1>
                                     <h1 className='text-xl font-semibold'>Purchase of year : {purchase} </h1>
                                     <h1 className='text-xl font-semibold'>Location : {location}</h1>
                                     <h1 className='text-xl font-semibold'>Mobile Number : {number}</h1>

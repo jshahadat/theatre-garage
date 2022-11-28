@@ -4,11 +4,8 @@ import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const MyOrders = () => {
 
-
     const { user } = useContext(AuthContext);
-
     const [myOrders, setMyOrders] = useState([])
-
 
     useEffect(() => {
         fetch(`http://localhost:5000/myorders?email=${user?.email}`, {
@@ -19,8 +16,6 @@ const MyOrders = () => {
             .then(res => res.json())
             .then(data => setMyOrders(data))
     }, [user?.email])
-
-
     return (
         <div>
             <div className='pr-5 lg:pr-20 pl-5'>
@@ -60,7 +55,6 @@ const MyOrders = () => {
 
                                 </tr>)
                             }
-
                         </tbody>
                     </table>
                 </div>

@@ -6,7 +6,6 @@ import Loading from '../Sheared/Loading/Loading';
 import CheckoutForm from './CheckoutForm';
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
-
 const Payment = () => {
     const booking = useLoaderData();
     const navigation = useNavigation();

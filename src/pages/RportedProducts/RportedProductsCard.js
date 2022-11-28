@@ -1,8 +1,5 @@
 import React from 'react';
 
-
-
-
 const RportedProductsCard = ({ reportedProduct, handleDeleteProducts }) => {
     const { _id, name, email, price, condition, number, location, img, description, purchase, status } = reportedProduct;
     return (
