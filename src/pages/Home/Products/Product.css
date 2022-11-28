@@ -231,14 +231,14 @@ figcaption {
     cursor: pointer;
 }
 
-button:hover,
-button:focus {
+.button:hover,
+.button:focus {
     color: var(--primary);
     background: hsla(var(--hue), 25%, 10%, .2);
     border-color: currentColor;
 }
 
-button:active {
+.button:active {
     transform: translate(2px);
 }
 

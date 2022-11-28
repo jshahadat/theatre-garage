@@ -2,7 +2,6 @@ import React from 'react';
 import '../Product.css'
 
 const ProductCard = ({ product, setTreatment }) => {
-    console.log(product);
 
     const { img, productName, originalPrice, resaleprice, use, location } = product;
 

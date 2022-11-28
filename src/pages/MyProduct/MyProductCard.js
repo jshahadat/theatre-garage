@@ -6,7 +6,7 @@ import '../Sheared/Style/Style.css'
 
 const MyProductCard = ({ myProduct, handleDeleteProducts }) => {
 
-    const { _id, name, email, price, condition, number, location, image, description, purchase, status } = myProduct;
+    const { _id, name, email, price, condition, number, location, img, description, purchase, status } = myProduct;
     console.log(status);
 
     // const handleAdvertise = event => {
@@ -86,7 +86,7 @@ const MyProductCard = ({ myProduct, handleDeleteProducts }) => {
 
         <div className='pb-10'>
             <div className="card lg:card-side bg-base-100 shadow-xl">
-                <figure><img className='w-96 h-96' src={image} alt="Album" /></figure>
+                <figure><img className='w-96 h-96' src={img} alt="Album" /></figure>
                 <div className="card-body">
                     <div className='flex justify-between'>
                         <h2 className="card-title">{name}</h2>

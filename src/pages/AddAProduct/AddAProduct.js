@@ -32,16 +32,17 @@ const AddAProduct = () => {
                 if (imgData.success) {
                     const product = {
                         categoryName: data.category,
-                        productNameame: data.name,
+                        productName: data.name,
                         email: user?.email,
-                        price: data.price,
+                        resaleprice: data.resaleprice,
+                        originalPrice: data.originalPrice,
                         condition: data.condition,
                         number: data.number,
                         purchase: data.purchase,
                         location: data.location,
                         description: data.description,
                         status: "available",
-                        image: imgData.data.url
+                        img: imgData.data.url
                     }
 
 
@@ -95,11 +96,18 @@ const AddAProduct = () => {
                     {errors.name && <p className='text-red-500'>{errors.name.message}</p>}
                 </div>
                 <div className="form-control w-full max-w-xs">
-                    <label className="label"> <span className="label-text">Price</span></label>
-                    <input type="text" {...register("price", {
-                        required: "price is Required"
+                    <label className="label"> <span className="label-text">Resale Price</span></label>
+                    <input type="text" {...register("resaleprice", {
+                        required: "resaleprice is Required"
                     })} className="input input-bordered w-full max-w-xs" />
-                    {errors.price && <p className='text-red-500'>{errors.price.message}</p>}
+                    {errors.resaleprice && <p className='text-red-500'>{errors.resaleprice.message}</p>}
+                </div>
+                <div className="form-control w-full max-w-xs">
+                    <label className="label"> <span className="label-text">Original Price</span></label>
+                    <input type="text" {...register("originalPrice", {
+                        required: "originalPrice is Required"
+                    })} className="input input-bordered w-full max-w-xs" />
+                    {errors.originalPrice && <p className='text-red-500'>{errors.originalPrice.message}</p>}
                 </div>
                 <div className="form-control w-full max-w-xs">
                     <label className="label"> <span className="label-text">Condition Type</span></label>

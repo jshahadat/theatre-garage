@@ -3,7 +3,7 @@ import "./Card.css";
 
 const Card = ({ add }) => {
 
-    const { name, price, image, description, number, email, condition, location, purchase, status, advertise } = add;
+    const { name, price, img, description, number, email, condition, location, purchase, status, advertise } = add;
     return (
         <div>
             {
@@ -16,7 +16,7 @@ const Card = ({ add }) => {
 
 
                             <div className='lg:w-2/4'>
-                                <figure><img className='lg:w-full w-96 rounded lg:h-96 h-96 ' src={image} alt="Album" /></figure>
+                                <figure><img className='lg:w-full w-96 rounded lg:h-96 h-96 ' src={img} alt="Album" /></figure>
                             </div>
                             <div className=' lg:pl-20'>
                                 <div className="card-body ">

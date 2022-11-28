@@ -31,7 +31,7 @@ const MyOrders = () => {
                             <tr>
                                 <th></th>
                                 <th>Image</th>
-                                <th>Title</th>
+                                <th>Product Name</th>
                                 <th>Price</th>
                                 <th>Payment</th>
                             </tr>
@@ -40,8 +40,8 @@ const MyOrders = () => {
                             {
                                 myOrders.map((myOrder, i) => <tr key={myOrder._id}>
                                     <th>{i + 1}</th>
-                                    <td><img src={myOrder.img} alt="" /></td>
-                                    <td>{myOrder.name}</td>
+                                    <td className=''><img className='w-24 h-24 rounded-full ring ring-primary  ' src={myOrder.img} alt="" /></td>
+                                    <td>{myOrder.productName}</td>
                                     <td>{myOrder.price}$</td>
                                     <td>
                                         {
